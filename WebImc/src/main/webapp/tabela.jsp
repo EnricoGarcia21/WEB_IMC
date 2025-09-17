@@ -1,0 +1,116 @@
+<%@ page import="com.example.webimc.Pessoa" %>
+<%@ page import="com.example.webimc.Usuario" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <%
+        Usuario usuario;
+        usuario=(Usuario)session.getAttribute("usuario");
+        if(usuario==null){
+            response.sendRedirect(".");
+            return;
+        }
+    %>
+    <title>Title</title>
+    <style>
+        *{font-family: Calibri;}
+        div{
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        #centraliza{
+            width: 100%;
+            text-align: center;
+            align-content: center;
+            display: block;
+        }
+        table, td, th {
+            border: 1px solid;
+            padding: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<%
+    Pessoa pessoa=(Pessoa)session.getAttribute("pessoa");
+    if(pessoa==null) {
+        response.sendRedirect(".");
+        return;
+    }
+    out.print("<h1>Peso="+pessoa.getPeso()+"</h1");
+%>
+<div id="centraliza">
+    <h2>Analise seu peso</h2>
+    <table>
+        <tr>
+            <th>Peso</th>
+            <th>IMC</th>
+            <th>Condição</th>
+        </tr>
+        <tr style="background: #4CAF50">
+            <td>52</td>
+            <td>17.99</td>
+            <td>Abaixo do peso</td>
+        </tr>
+        <tr style="background: #4169e1">
+            <td>54</td>
+            <td>18.69</td>
+            <td>Peso Ideal</td>
+        </tr>
+        <tr style="background: #4169e1">
+            <td>56</td>
+            <td>19.38</td>
+            <td>Peso Ideal</td>
+        </tr>
+        <tr style="background: #4169e1">
+            <td>58</td>
+            <td>20.07</td>
+            <td>Peso Ideal</td>
+        </tr>
+
+        <tr style="background: #4169e1">
+            <td>60</td>
+            <td>20.76</td>
+            <td>Peso Ideal</td>
+        </tr>
+        <tr style="background: #4169e1; font-weight: bold">
+            <td>62</td>
+            <td>21.45</td>
+            <td>Peso Ideal</td>
+        </tr>
+        <tr style="background: #4169e1">
+            <td>64</td>
+            <td>22.15</td>
+            <td>Peso Ideal</td>
+        </tr>
+        <tr style="background: #4169e1">
+            <td>66</td>
+            <td>22.84</td>
+            <td>Peso Ideal</td>
+        </tr>
+        <tr style="background: #4169e1">
+            <td>68</td>
+            <td>23.53</td>
+            <td>Peso Ideal</td>
+        </tr>
+        <tr style="background: #4169e1">
+            <td>70</td>
+            <td>24,22</td>
+            <td>Peso Ideal</td>
+        </tr>
+        <tr style="background: #fa8072">
+            <td>72</td>
+            <td>24,91</td>
+            <td>Sobrepeso</td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
